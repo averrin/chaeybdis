@@ -108,7 +108,7 @@ report_mouse_t pointing_device_task_user(report_mouse_t mouse_report) {
 #        ifdef RGB_MATRIX_ENABLE
             rgb_matrix_mode_noeeprom(RGB_MATRIX_NONE);
           //   rgb_matrix_sethsv_noeeprom(HSV_GREEN);
-          rgb_matrix_set_color_noeeprom(19, 255, 0, 0);
+          rgb_matrix_set_color(19, 255, 0, 0);
 #        endif // RGB_MATRIX_ENABLE
         }
         auto_pointer_layer_timer = timer_read();
