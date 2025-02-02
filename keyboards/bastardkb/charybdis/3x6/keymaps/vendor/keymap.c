@@ -45,10 +45,10 @@ static uint16_t auto_pointer_layer_timer = 0;
 #define PT_Z LT(LAYER_POINTER, KC_Z)
 #define PT_SLSH LT(LAYER_POINTER, KC_SLSH)
 // #define QEM ACTION_TAP_DANCE_DOUBLE(KC_SLSH, S(KC_1))
-tap_dance_action_t tap_dance_actions[] = {
-    // Tap once for Escape, twice for Caps Lock
-    [TD_QEM] = ACTION_TAP_DANCE_DOUBLE(KC_SLSH, S(KC_1)),
-};
+// tap_dance_action_t tap_dance_actions[] = {
+//     // Tap once for Escape, twice for Caps Lock
+//     [TD_QEM] = ACTION_TAP_DANCE_DOUBLE(KC_SLSH, S(KC_1)),
+// };
 
 // clang-format off
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
@@ -58,7 +58,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   // ├──────────────────────────────────────────────────────┤ ├──────────────────────────────────────────────────────┤
        KC_LCTL,    KC_A,    KC_S,    KC_D,    KC_F,    KC_G,       KC_H,    KC_J,    KC_K,    KC_L, KC_SCLN, KC_RCTL,
   // ├──────────────────────────────────────────────────────┤ ├──────────────────────────────────────────────────────┤
-       KC_LSFT,    PT_Z,    KC_X,    KC_C,    KC_V,    KC_B,       KC_N,    KC_M, KC_COMM,  KC_DOT, TD(TD_QEM), KC_RSFT,
+       KC_LSFT,    PT_Z,    KC_X,    KC_C,    KC_V,    KC_B,       KC_N,    KC_M, KC_COMM,  KC_DOT, KC_SLSH, KC_RSFT,
   // ╰──────────────────────────────────────────────────────┤ ├──────────────────────────────────────────────────────╯
                                   KC_BSPC,  KC_SPC,   LOWER,      RAISE,  KC_ENT
   //                            ╰───────────────────────────╯ ╰──────────────────╯
@@ -144,6 +144,7 @@ layer_state_t layer_state_set_user(layer_state_t state) {
 // Forward-declare this helper function since it is defined in rgb_matrix.c.
 void rgb_matrix_update_pwm_buffers(void);
 
+/*
 bool rgb_matrix_indicators_advanced_user(uint8_t led_min, uint8_t led_max) {
     switch(get_highest_layer(layer_state|default_layer_state)) {
         case LAYER_BASE:
@@ -168,5 +169,5 @@ bool rgb_matrix_indicators_advanced_user(uint8_t led_min, uint8_t led_max) {
             break;
     }
     return false;
-}
+}*/
 #endif
