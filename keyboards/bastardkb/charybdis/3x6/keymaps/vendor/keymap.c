@@ -147,8 +147,9 @@ void rgb_matrix_update_pwm_buffers(void);
 bool rgb_matrix_indicators_advanced_user(uint8_t led_min, uint8_t led_max) {
     switch(get_highest_layer(layer_state|default_layer_state)) {
           case LAYER_POINTER:
-            rgb_matrix_mode_noeeprom(RGB_MATRIX_NONE);
-            rgb_matrix_sethsv_noeeprom(HSV_GREEN);
+          //   rgb_matrix_mode_noeeprom(RGB_MATRIX_NONE);
+          //   rgb_matrix_sethsv_noeeprom(HSV_GREEN);
+            rgb_matrix_set_color_all(RGB_GREEN);
             break;
         default:
             rgb_matrix_mode_noeeprom(RGB_MATRIX_DEFAULT_MODE);
