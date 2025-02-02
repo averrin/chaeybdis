@@ -21,8 +21,8 @@ enum charybdis_keymap_layers {
     LAYER_LOWER,
     LAYER_RAISE,
     LAYER_POINTER,
-    LAYER_FN,
-    LAYER_GAME,
+//     LAYER_FN,
+//     LAYER_GAME,
 };
 
 /** \brief Automatically enable sniping-mode on the pointer layer. */
@@ -154,12 +154,12 @@ bool rgb_matrix_indicators_advanced_user(uint8_t led_min, uint8_t led_max) {
           case LAYER_POINTER:
             rgb_matrix_set_color_all(RGB_GREEN);
             break;
-          case LAYER_FN:
-            rgb_matrix_set_color_all(RGB_ORANGE);
-            break;
-          case LAYER_GAME:
-            rgb_matrix_set_color_all(RGB_RED);
-            break;
+          // case LAYER_FN:
+          //   rgb_matrix_set_color_all(RGB_ORANGE);
+          //   break;
+          // case LAYER_GAME:
+          //   rgb_matrix_set_color_all(RGB_RED);
+          //   break;
         default:
             break;
     }
