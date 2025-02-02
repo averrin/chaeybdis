@@ -152,7 +152,7 @@ bool rgb_matrix_indicators_advanced_user(uint8_t led_min, uint8_t led_max) {
             rgb_matrix_set_color_all(RGB_GREEN);
             break;
         default:
-            rgb_matrix_mode_noeeprom(RGB_MATRIX_DEFAULT_MODE);
+            rgb_matrix_mode(RGB_MATRIX_DEFAULT_MODE);
             break;
     }
     return false;
