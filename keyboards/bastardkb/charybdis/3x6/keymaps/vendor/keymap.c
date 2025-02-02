@@ -144,30 +144,18 @@ layer_state_t layer_state_set_user(layer_state_t state) {
 // Forward-declare this helper function since it is defined in rgb_matrix.c.
 void rgb_matrix_update_pwm_buffers(void);
 
-/*
 bool rgb_matrix_indicators_advanced_user(uint8_t led_min, uint8_t led_max) {
     switch(get_highest_layer(layer_state|default_layer_state)) {
-        case LAYER_BASE:
-            rgb_matrix_set_color_all(RGB_PURPLE);
-            break;
-          case LAYER_RAISE:
-            rgb_matrix_set_color_all(RGB_BLUE);
-            break;
-          case LAYER_LOWER:
-            rgb_matrix_set_color_all(RGB_TEAL);
-            break;
           case LAYER_POINTER:
-            rgb_matrix_set_color_all(RGB_GREEN);
+            rgb_matrix_mode_noeeprom(RGB_MATRIX_NONE);
+            rgb_matrix_sethsv_noeeprom(HSV_GREEN);
             break;
-          // case LAYER_FN:
-          //   rgb_matrix_set_color_all(RGB_ORANGE);
-          //   break;
-          // case LAYER_GAME:
-          //   rgb_matrix_set_color_all(RGB_RED);
-          //   break;
         default:
+            rgb_matrix_mode_noeeprom(RGB_MATRIX_DEFAULT_MODE);
             break;
     }
     return false;
-}*/
+}
+/*
+*/
 #endif
