@@ -21,8 +21,8 @@ enum charybdis_keymap_layers {
     LAYER_LOWER,
     LAYER_RAISE,
     LAYER_POINTER,
-    LAYER_FN,
-    LAYER_GAME,
+//     LAYER_FN,
+//     LAYER_GAME,
 };
 
 /** \brief Automatically enable sniping-mode on the pointer layer. */
@@ -94,8 +94,8 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
                                   KC_BTN2, KC_BTN1, KC_BTN3,    KC_BTN3, KC_BTN1
   //                            ╰───────────────────────────╯ ╰──────────────────╯
   ),
-  [LAYER_FN] = LAYOUT(),
-  [LAYER_GAME] = LAYOUT(),
+//   [LAYER_FN] = LAYOUT(),
+//   [LAYER_GAME] = LAYOUT(),
 };
 // clang-format on
 
