@@ -21,8 +21,8 @@ enum charybdis_keymap_layers {
     LAYER_LOWER,
     LAYER_RAISE,
     LAYER_POINTER,
-//     LAYER_FN,
-//     LAYER_GAME,
+    LAYER_FN,
+    LAYER_GAME,
 };
 
 /** \brief Automatically enable sniping-mode on the pointer layer. */
@@ -44,6 +44,7 @@ static uint16_t auto_pointer_layer_timer = 0;
 #define RAISE MO(LAYER_RAISE)
 #define PT_Z LT(LAYER_POINTER, KC_Z)
 #define PT_SLSH LT(LAYER_POINTER, KC_SLSH)
+#define QEM ACTION_TAP_DANCE_DOUBLE(KC_SLSH,S(KC_1))
 
 // clang-format off
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
@@ -53,7 +54,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   // ├──────────────────────────────────────────────────────┤ ├──────────────────────────────────────────────────────┤
        KC_LCTL,    KC_A,    KC_S,    KC_D,    KC_F,    KC_G,       KC_H,    KC_J,    KC_K,    KC_L, KC_SCLN, KC_RCTL,
   // ├──────────────────────────────────────────────────────┤ ├──────────────────────────────────────────────────────┤
-       KC_LSFT,    PT_Z,    KC_X,    KC_C,    KC_V,    KC_B,       KC_N,    KC_M, KC_COMM,  KC_DOT, PT_SLSH, KC_RSFT,
+       KC_LSFT,    PT_Z,    KC_X,    KC_C,    KC_V,    KC_B,       KC_N,    KC_M, KC_COMM,  KC_DOT, QEM, KC_RSFT,
   // ╰──────────────────────────────────────────────────────┤ ├──────────────────────────────────────────────────────╯
                                   KC_BSPC,  KC_SPC,   LOWER,      RAISE,  KC_ENT
   //                            ╰───────────────────────────╯ ╰──────────────────╯
@@ -148,10 +149,16 @@ bool rgb_matrix_indicators_advanced_user(uint8_t led_min, uint8_t led_max) {
             rgb_matrix_set_color_all(RGB_BLUE);
             break;
           case LAYER_LOWER:
-            rgb_matrix_set_color_all(RGB_YELLOW);
+            rgb_matrix_set_color_all(RGB_TEAL);
             break;
           case LAYER_POINTER:
             rgb_matrix_set_color_all(RGB_GREEN);
+            break;
+          case LAYER_FN:
+            rgb_matrix_set_color_all(RGB_ORANGE);
+            break;
+          case LAYER_GAME:
+            rgb_matrix_set_color_all(RGB_RED);
             break;
         default:
             break;

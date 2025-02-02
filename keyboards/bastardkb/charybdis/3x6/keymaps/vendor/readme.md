@@ -55,3 +55,5 @@ The trigger sensibility can also be tuned. The lower the value, the more sensibl
 ```c
 #define CHARYBDIS_AUTO_POINTER_LAYER_TRIGGER_THRESHOLD 8
 ```
+
+ACTION_TAP_DANCE_DOUBLE(KC_SLSH,S(KC_1))
