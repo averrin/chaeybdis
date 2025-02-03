@@ -216,9 +216,9 @@ bool rgb_matrix_indicators_advanced_user(uint8_t led_min, uint8_t led_max) {
             rgb_matrix_set_color(10, RGB_YELLOW);
             rgb_matrix_set_color(11, RGB_YELLOW);
             rgb_matrix_set_color(12, RGB_YELLOW);
-            rgb_matrix_set_color(14, RGB_YELLOW);
-            rgb_matrix_set_color(15, RGB_YELLOW);
-            rgb_matrix_set_color(18, RGB_YELLOW);
+            rgb_matrix_set_color(13, RGB_YELLOW);
+            rgb_matrix_set_color(16, RGB_YELLOW);
+            rgb_matrix_set_color(17, RGB_YELLOW);
 
             rgb_matrix_set_color(2, RGB_TEAL);
         }
@@ -233,9 +233,9 @@ bool rgb_matrix_indicators_advanced_user(uint8_t led_min, uint8_t led_max) {
             rgb_matrix_set_color(2, RGB_TEAL);
         }
         else {
-            rgb_matrix_set_color(27, RGB_GREEN);
-            rgb_matrix_set_color(32, RGB_GREEN);
-            rgb_matrix_set_color(33, RGB_GREEN);
+            rgb_matrix_set_color(29, RGB_GREEN);
+            rgb_matrix_set_color(30, RGB_GREEN);
+            rgb_matrix_set_color(35, RGB_GREEN);
         }
             break;
     }
