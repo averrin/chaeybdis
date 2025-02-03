@@ -144,7 +144,7 @@ layer_state_t layer_state_set_user(layer_state_t state) {
 typedef struct {
     uint8_t led_index;
     uint8_t r;
-    uint8_t g
+    uint8_t g;
     uint8_t b;
 } led_config;
 
