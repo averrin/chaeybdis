@@ -145,47 +145,35 @@ layer_state_t layer_state_set_user(layer_state_t state) {
 void rgb_matrix_update_pwm_buffers(void);
 
 bool rgb_matrix_indicators_advanced_user(uint8_t led_min, uint8_t led_max) {
-/*
-    rgblight_disable_noeeprom(); // Disable RGB control when switching layers
-    switch (get_highest_layer(layer_state|default_layer_state)) {
-        case LAYER_POINTER: // Example: Layer 1
-            rgblight_setrgb_at(255, 0, 0, 0); // LED 0 - Red
-            rgblight_setrgb_at(255, 0, 0, 1); // LED 1 - Red
-            rgblight_enable_noeeprom(); // Reactivate custom control
-            break;
-     //    case 2: // Example: Layer 2
-     //        rgblight_setrgb_at(0, 255, 0, 0); // LED 0 - Green
-     //        rgblight_setrgb_at(0, 255, 0, 1); // LED 1 - Green
-     //        rgblight_enable_noeeprom();
-     //        break;
-        default: // Base Layer
-            rgblight_mode_noeeprom(RGB_MATRIX_DEFAULT_MODE); // Restore default effect
-            break;
-    }
     switch(get_highest_layer(layer_state|default_layer_state)) {
         case LAYER_BASE:
-            rgb_matrix_set_color_all(RGB_PURPLE);
+            return false; // Keep default RGB mode
+        case LAYER_RAISE:
+            // Highlight navigation and media keys
+            rgb_matrix_set_color(1, RGB_BLUE);  // Volume up
+            rgb_matrix_set_color(2, RGB_BLUE);  // Mute
+            rgb_matrix_set_color(3, RGB_BLUE);  // Volume down
+            rgb_matrix_set_color(7, RGB_BLUE);  // Arrow keys
+            rgb_matrix_set_color(8, RGB_BLUE);
+            rgb_matrix_set_color(9, RGB_BLUE);
+            rgb_matrix_set_color(10, RGB_BLUE);
             break;
-          case LAYER_RAISE:
-            rgb_matrix_set_color_all(RGB_BLUE);
+        case LAYER_LOWER:
+            // Highlight numpad keys
+            for (uint8_t i = 7; i <= 16; i++) {
+                rgb_matrix_set_color(i, RGB_TEAL);  // Number keys
+            }
             break;
-          case LAYER_LOWER:
-            rgb_matrix_set_color_all(RGB_TEAL);
+        case LAYER_POINTER:
+            // Highlight pointer control keys
+            rgb_matrix_set_color(4, RGB_GREEN);   // DPI controls
+            rgb_matrix_set_color(5, RGB_GREEN);
+            rgb_matrix_set_color(14, RGB_GREEN);  // Scroll/sniper keys
+            rgb_matrix_set_color(15, RGB_GREEN);
             break;
-          case LAYER_POINTER:
-            rgb_matrix_set_color_all(RGB_GREEN);
-            break;
-          // case LAYER_FN:
-          //   rgb_matrix_set_color_all(RGB_ORANGE);
-          //   break;
-          // case LAYER_GAME:
-          //   rgb_matrix_set_color_all(RGB_RED);
-          //   break;
         default:
-     //    rgb_matrix_mode_noeeprom(RGB_MATRIX_DEFAULT_MODE);
-            break;
+            return false;
     }
-*/
     return false;
 }
 #endif

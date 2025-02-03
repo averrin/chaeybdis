@@ -57,3 +57,4 @@ The trigger sensibility can also be tuned. The lower the value, the more sensibl
 ```
 
 ACTION_TAP_DANCE_DOUBLE(KC_SLSH,S(KC_1))
+MT(CUSTOM(4),KC_MS_BTN2)
