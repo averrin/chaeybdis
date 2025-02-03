@@ -173,7 +173,7 @@ bool rgb_matrix_indicators_advanced_user(uint8_t led_min, uint8_t led_max) {
             rgb_matrix_set_color(35, RGB_TEAL);  // 6
             rgb_matrix_set_color(38, RGB_TEAL);  // 6
 
-            rgb_matrix_set_color(38, RGB_RED);  // 6
+            rgb_matrix_set_color(37, RGB_RED);  // 6
             rgb_matrix_set_color(25, RGB_RED);  // 6
 
             break;
