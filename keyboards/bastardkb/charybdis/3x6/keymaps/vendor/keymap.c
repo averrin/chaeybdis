@@ -144,12 +144,12 @@ layer_state_t layer_state_set_user(layer_state_t state) {
 typedef struct {
     uint8_t led_index;
     uint8_t r;
-    uint8_t g;
+    uint8_t g
     uint8_t b;
-} led_config_t;
+} led_config;
 
 // Define LED configurations for each layer
-static const led_config_t PROGMEM layer_led_configs[][10] = {
+static const led_config PROGMEM layer_led_configs[][10] = {
     [LAYER_BASE] = {
         // Home row keys
         {4,  RGB_PURPLE}, // A
