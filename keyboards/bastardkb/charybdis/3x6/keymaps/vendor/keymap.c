@@ -176,10 +176,10 @@ bool rgb_matrix_indicators_advanced_user(uint8_t led_min, uint8_t led_max) {
             rgb_matrix_set_color(10, RGB_PURPLE);
             rgb_matrix_set_color(13, RGB_PURPLE);
         }
-            rgb_matrix_set_color(22, RGB_PURPLE);
             rgb_matrix_set_color(25, RGB_PURPLE);
             rgb_matrix_set_color(28, RGB_PURPLE);
             rgb_matrix_set_color(31, RGB_PURPLE);
+            rgb_matrix_set_color(34, RGB_PURPLE);
             break;
 
         case LAYER_RAISE:
@@ -209,18 +209,17 @@ bool rgb_matrix_indicators_advanced_user(uint8_t led_min, uint8_t led_max) {
         if (is_keyboard_left()) {
             rgb_matrix_set_color(0, RGB_YELLOW);
             rgb_matrix_set_color(1, RGB_YELLOW);
-            rgb_matrix_set_color(3, RGB_YELLOW);
             rgb_matrix_set_color(4, RGB_YELLOW);
-            rgb_matrix_set_color(6, RGB_YELLOW);
+            rgb_matrix_set_color(5, RGB_YELLOW);
             rgb_matrix_set_color(7, RGB_YELLOW);
-            rgb_matrix_set_color(9, RGB_YELLOW);
+            rgb_matrix_set_color(8, RGB_YELLOW);
             rgb_matrix_set_color(10, RGB_YELLOW);
-            rgb_matrix_set_color(12, RGB_YELLOW);
+            rgb_matrix_set_color(11, RGB_YELLOW);
             rgb_matrix_set_color(13, RGB_YELLOW);
-            rgb_matrix_set_color(15, RGB_YELLOW);
+            rgb_matrix_set_color(14, RGB_YELLOW);
             rgb_matrix_set_color(16, RGB_YELLOW);
             rgb_matrix_set_color(18, RGB_YELLOW);
-            rgb_matrix_set_color(19, RGB_YELLOW);
+            rgb_matrix_set_color(17, RGB_YELLOW);
 
             rgb_matrix_set_color(2, RGB_TEAL);
         }
