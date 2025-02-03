@@ -150,40 +150,36 @@ bool rgb_matrix_indicators_advanced_user(uint8_t led_min, uint8_t led_max) {
     switch(get_highest_layer(layer_state|default_layer_state)) {
         case LAYER_BASE:
             // Highlight home row (ASDF and JKL;)
-            rgb_matrix_set_color(13, RGB_PURPLE);  // A (index 13)
-            rgb_matrix_set_color(14, RGB_PURPLE);  // S (index 14)
-            rgb_matrix_set_color(15, RGB_PURPLE);  // D (index 15)
-            rgb_matrix_set_color(16, RGB_PURPLE);  // F (index 16)
-            rgb_matrix_set_color(19, RGB_PURPLE);  // J (index 19)
-            rgb_matrix_set_color(20, RGB_PURPLE);  // K (index 20)
-            rgb_matrix_set_color(21, RGB_PURPLE);  // L (index 21)
-            rgb_matrix_set_color(22, RGB_PURPLE);  // ; (index 22)
+            rgb_matrix_set_color(4, RGB_PURPLE);  // A (index 13)
+            rgb_matrix_set_color(7, RGB_PURPLE);  // S (index 14)
+            rgb_matrix_set_color(10, RGB_PURPLE);  // D (index 15)
+            rgb_matrix_set_color(13, RGB_PURPLE);  // F (index 16)
+            rgb_matrix_set_color(22, RGB_PURPLE);  // J (index 19)
+            rgb_matrix_set_color(25, RGB_PURPLE);  // K (index 20)
+            rgb_matrix_set_color(28, RGB_PURPLE);  // L (index 21)
+            rgb_matrix_set_color(31, RGB_PURPLE);  // ; (index 22)
             break;
         case LAYER_RAISE:
-            // Highlight navigation and media keys
-            rgb_matrix_set_color(7, RGB_BLUE);   // Volume up
-            rgb_matrix_set_color(8, RGB_BLUE);   // Mute
-            rgb_matrix_set_color(9, RGB_BLUE);   // Volume down
-            rgb_matrix_set_color(13, RGB_BLUE);  // Left
-            rgb_matrix_set_color(14, RGB_BLUE);  // Up
-            rgb_matrix_set_color(15, RGB_BLUE);  // Down
-            rgb_matrix_set_color(16, RGB_BLUE);  // Right
             break;
         case LAYER_LOWER:
             // Highlight numpad keys
-            rgb_matrix_set_color(7, RGB_TEAL);   // 7
-            rgb_matrix_set_color(8, RGB_TEAL);   // 8
-            rgb_matrix_set_color(9, RGB_TEAL);   // 9
-            rgb_matrix_set_color(19, RGB_TEAL);  // 4
-            rgb_matrix_set_color(20, RGB_TEAL);  // 5
-            rgb_matrix_set_color(21, RGB_TEAL);  // 6
+            rgb_matrix_set_color(20, RGB_TEAL);   // 7
+            rgb_matrix_set_color(22, RGB_TEAL);  // 6
+            rgb_matrix_set_color(23, RGB_TEAL);  // 6
+            rgb_matrix_set_color(24, RGB_TEAL);  // 6
+            rgb_matrix_set_color(25, RGB_TEAL);  // 6
+            rgb_matrix_set_color(26, RGB_TEAL);  // 6
+            rgb_matrix_set_color(27, RGB_TEAL);  // 6
+            rgb_matrix_set_color(28, RGB_TEAL);  // 6
+            rgb_matrix_set_color(29, RGB_TEAL);  // 6
+            
             break;
         case LAYER_POINTER:
             // Highlight pointer control keys
-            rgb_matrix_set_color(4, RGB_GREEN);   // DPI_MOD
-            rgb_matrix_set_color(5, RGB_GREEN);   // S_D_MOD
-            rgb_matrix_set_color(20, RGB_GREEN);  // Sniper
-            rgb_matrix_set_color(21, RGB_GREEN);  // Scroll
+            rgb_matrix_set_color(22, RGB_GREEN);   // DPI_MOD
+            rgb_matrix_set_color(25, RGB_GREEN);   // DPI_MOD
+            rgb_matrix_set_color(28, RGB_GREEN);   // DPI_MOD
+            rgb_matrix_set_color(31, RGB_GREEN);   // DPI_MOD
             break;
     }
     return false;
