@@ -163,13 +163,24 @@ bool rgb_matrix_indicators_advanced_user(uint8_t led_min, uint8_t led_max) {
             break;
         case LAYER_LOWER:
             // Highlight numpad keys
-            rgb_matrix_set_color(22, RGB_TEAL);  // 6
-            
+            rgb_matrix_set_color(27, RGB_TEAL);  // 6
+            rgb_matrix_set_color(28, RGB_TEAL);  // 6
+            rgb_matrix_set_color(29, RGB_TEAL);  // 6
+            rgb_matrix_set_color(30, RGB_TEAL);  // 6
+            rgb_matrix_set_color(31, RGB_TEAL);  // 6
+            rgb_matrix_set_color(32, RGB_TEAL);  // 6
+            rgb_matrix_set_color(33, RGB_TEAL);  // 6
+            rgb_matrix_set_color(34, RGB_TEAL);  // 6
+            rgb_matrix_set_color(35, RGB_TEAL);  // 6
+            rgb_matrix_set_color(36, RGB_TEAL);  // 6
 
             break;
         case LAYER_POINTER:
             // Highlight pointer control keys
-            rgb_matrix_set_color(22, RGB_GREEN);   // DPI_MOD
+            rgb_matrix_set_color(25, RGB_GREEN);   // DPI_MOD
+            rgb_matrix_set_color(28, RGB_GREEN);   // DPI_MOD
+            rgb_matrix_set_color(31, RGB_GREEN);   // DPI_MOD
+            rgb_matrix_set_color(34, RGB_GREEN);   // DPI_MOD
             break;
     }
     return false;
