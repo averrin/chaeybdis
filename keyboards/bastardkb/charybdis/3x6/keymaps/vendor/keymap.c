@@ -102,13 +102,13 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
   [LAYER_GAME] = LAYOUT(
   // ╭──────────────────────────────────────────────────────╮ ╭──────────────────────────────────────────────────────╮
-       KC_TRNS,    KC_Q,    KC_W,    KC_E,    KC_R,    KC_T,    XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
+       KC_TRNS,    KC_Q,    KC_W,    KC_E,    KC_R,    KC_T,    KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,
   // ├──────────────────────────────────────────────────────┤ ├──────────────────────────────────────────────────────┤
-       KC_TRNS,    KC_A,    KC_S,    KC_D,    KC_F,    KC_G,    XXXXXXX, KC_MS_BTN1, KC_MS_BTN2, KC_TRNS, XXXXXXX, XXXXXXX,
+       KC_TRNS,    KC_A,    KC_S,    KC_D,    KC_F,    KC_G,    KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,
   // ├──────────────────────────────────────────────────────┤ ├──────────────────────────────────────────────────────┤
-       TG(LAYER_FN),      KC_Z,    KC_X,    KC_C,    KC_V,    KC_B,    QK_BOOT, EE_CLR, XXXXXXX, XXXXXXX, KC_TRNS, XXXXXXX,
+       TG(LAYER_FN),      KC_Z,    KC_X,    KC_C,    KC_V,    KC_B,    KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,
   // ╰──────────────────────────────────────────────────────┤ ├──────────────────────────────────────────────────────╯
-                                  KC_ESC,   KC_SPC,   KC_TAB,    KC_MS_BTN3, KC_MS_BTN1
+                                  KC_ESC,   KC_SPC,   KC_TAB,    KC_TRNS, KC_TRNS
   //                            ╰───────────────────────────╯ ╰──────────────────╯
   ),
 
@@ -166,53 +166,67 @@ layer_state_t layer_state_set_user(layer_state_t state) {
 void rgb_matrix_update_pwm_buffers(void);
 
 bool rgb_matrix_indicators_advanced_user(uint8_t led_min, uint8_t led_max) {
-    rgb_matrix_set_color_all(0, 0, 0); // Turn off all LEDs by default
+    rgb_matrix_set_color_all(0, 0, 0);
     
     switch(get_highest_layer(layer_state|default_layer_state)) {
         case LAYER_BASE:
-            // Highlight home row (ASDF and JKL;)
-            rgb_matrix_set_color(4, RGB_PURPLE);  // A (index 13)
-            rgb_matrix_set_color(7, RGB_PURPLE);  // S (index 14)
-            rgb_matrix_set_color(10, RGB_PURPLE);  // D (index 15)
-            rgb_matrix_set_color(13, RGB_PURPLE);  // F (index 16)
-            rgb_matrix_set_color(22, RGB_PURPLE);  // J (index 19)
-            rgb_matrix_set_color(25, RGB_PURPLE);  // K (index 20)
-            rgb_matrix_set_color(28, RGB_PURPLE);  // L (index 21)
-            rgb_matrix_set_color(31, RGB_PURPLE);  // ; (index 22)
+            rgb_matrix_set_color(4, RGB_PURPLE);
+            rgb_matrix_set_color(7, RGB_PURPLE);
+            rgb_matrix_set_color(10, RGB_PURPLE);
+            rgb_matrix_set_color(13, RGB_PURPLE);
+            rgb_matrix_set_color(22, RGB_PURPLE);
+            rgb_matrix_set_color(25, RGB_PURPLE);
+            rgb_matrix_set_color(28, RGB_PURPLE);
+            rgb_matrix_set_color(31, RGB_PURPLE);
             break;
         case LAYER_RAISE:
             break;
         case LAYER_LOWER:
-            // Highlight numpad keys
-            rgb_matrix_set_color(27, RGB_TEAL);  // 6
-            rgb_matrix_set_color(28, RGB_TEAL);  // 6
-            rgb_matrix_set_color(29, RGB_TEAL);  // 6
-            rgb_matrix_set_color(30, RGB_TEAL);  // 6
-            rgb_matrix_set_color(31, RGB_TEAL);  // 6
-            rgb_matrix_set_color(32, RGB_TEAL);  // 6
-            rgb_matrix_set_color(33, RGB_TEAL);  // 6
-            rgb_matrix_set_color(34, RGB_TEAL);  // 6
-            rgb_matrix_set_color(35, RGB_TEAL);  // 6
-            rgb_matrix_set_color(38, RGB_TEAL);  // 6
+            rgb_matrix_set_color(27, RGB_TEAL);
+            rgb_matrix_set_color(28, RGB_TEAL);
+            rgb_matrix_set_color(29, RGB_TEAL);
+            rgb_matrix_set_color(30, RGB_TEAL);
+            rgb_matrix_set_color(31, RGB_TEAL);
+            rgb_matrix_set_color(32, RGB_TEAL);
+            rgb_matrix_set_color(33, RGB_TEAL);
+            rgb_matrix_set_color(34, RGB_TEAL);
+            rgb_matrix_set_color(35, RGB_TEAL);
+            rgb_matrix_set_color(38, RGB_TEAL);
 
-            rgb_matrix_set_color(37, RGB_RED);  // 6
-            rgb_matrix_set_color(25, RGB_RED);  // 6
-
+            rgb_matrix_set_color(37, RGB_RED);
+            rgb_matrix_set_color(25, RGB_RED);
             break;
         case LAYER_POINTER:
-            // Highlight pointer control keys
-            rgb_matrix_set_color(25, RGB_GREEN);   // DPI_MOD
-            rgb_matrix_set_color(28, RGB_GREEN);   // DPI_MOD
-            rgb_matrix_set_color(31, RGB_GREEN);   // DPI_MOD
-            rgb_matrix_set_color(34, RGB_GREEN);   // DPI_MOD
+            rgb_matrix_set_color(25, RGB_GREEN);
+            rgb_matrix_set_color(28, RGB_GREEN);
+            rgb_matrix_set_color(31, RGB_GREEN);
+            rgb_matrix_set_color(34, RGB_GREEN);
             break;
         case LAYER_FN:
+            rgb_matrix_set_color(0, RGB_YELLOW);
+            rgb_matrix_set_color(1, RGB_YELLOW);
+            rgb_matrix_set_color(3, RGB_YELLOW);
+            rgb_matrix_set_color(4, RGB_YELLOW);
+            rgb_matrix_set_color(6, RGB_YELLOW);
+            rgb_matrix_set_color(7, RGB_YELLOW);
+            rgb_matrix_set_color(9, RGB_YELLOW);
+            rgb_matrix_set_color(10, RGB_YELLOW);
+            rgb_matrix_set_color(12, RGB_YELLOW);
+            rgb_matrix_set_color(13, RGB_YELLOW);
+            rgb_matrix_set_color(15, RGB_YELLOW);
+            rgb_matrix_set_color(16, RGB_YELLOW);
+            rgb_matrix_set_color(18, RGB_YELLOW);
+            rgb_matrix_set_color(19, RGB_YELLOW);
+
+            rgb_matrix_set_color(2, RGB_TEAL);
             break;
         case LAYER_GAME:
-            rgb_matrix_set_color(4, RGB_RED);  // 6
-            rgb_matrix_set_color(6, RGB_RED);  // 6
-            rgb_matrix_set_color(7, RGB_RED);  // 6
-            rgb_matrix_set_color(10, RGB_RED);  // 6
+            rgb_matrix_set_color(4, RGB_RED);
+            rgb_matrix_set_color(6, RGB_RED);
+            rgb_matrix_set_color(7, RGB_RED);
+            rgb_matrix_set_color(10, RGB_RED);
+
+            rgb_matrix_set_color(2, RGB_TEAL);
             break;
     }
     return false;
