@@ -15,15 +15,14 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 #include QMK_KEYBOARD_H
-#include <stdint.h>
 
 enum charybdis_keymap_layers {
     LAYER_BASE = 0,
     LAYER_LOWER,
     LAYER_RAISE,
     LAYER_POINTER,
-//     LAYER_FN,
-//     LAYER_GAME,
+    LAYER_FN,
+    LAYER_GAME,
 };
 
 /** \brief Automatically enable sniping-mode on the pointer layer. */
@@ -141,63 +140,59 @@ layer_state_t layer_state_set_user(layer_state_t state) {
 #    endif // CHARYBDIS_AUTO_SNIPING_ON_LAYER
 #endif     // POINTING_DEVICE_ENABLE
 
-// Define a structure for LED configurations
-typedef struct {
-    uint8_t led_index;
-    uint8_t r;
-    uint8_t g;
-    uint8_t b;
-} led_config;
-
-// Define LED configurations for each layer
-static const led_config PROGMEM layer_led_configs[][10] = {
-    [LAYER_BASE] = {
-        // Home row keys
-        {4,  RGB_PURPLE}, // A
-        {7,  RGB_PURPLE}, // S
-        {10, RGB_PURPLE}, // D
-        {13, RGB_PURPLE}, // F
-        {22, RGB_PURPLE}, // J
-        {25, RGB_PURPLE}, // K
-        {28, RGB_PURPLE}, // L
-        {31, RGB_PURPLE}, // ;
-        {255, 0, 0, 0},   // End marker
-    },
-    [LAYER_LOWER] = {
-        // Numpad keys
-        {27, RGB_TEAL},
-        {28, RGB_TEAL},
-        {29, RGB_TEAL},
-        {30, RGB_TEAL},
-        {31, RGB_TEAL},
-        {32, RGB_TEAL},
-        {33, RGB_TEAL},
-        {34, RGB_TEAL},
-        {35, RGB_TEAL},
-        {38, RGB_RED},
-        {25, RGB_RED},
-        {255, 0, 0, 0},   // End marker
-    },
-    [LAYER_POINTER] = {
-        // Pointer control keys
-        {25, RGB_GREEN},
-        {28, RGB_GREEN},
-        {31, RGB_GREEN},
-        {34, RGB_GREEN},
-        {255, 0, 0, 0},   // End marker
-    },
-};
+// Forward-declare this helper function since it is defined in rgb_matrix.c.
+void rgb_matrix_update_pwm_buffers(void);
 
 bool rgb_matrix_indicators_advanced_user(uint8_t led_min, uint8_t led_max) {
     rgb_matrix_set_color_all(0, 0, 0); // Turn off all LEDs by default
     
-    uint8_t current_layer = get_highest_layer(layer_state|default_layer_state);
-    
-    // Apply LED configuration for current layer
-    const led_config_t *config = layer_led_configs[current_layer];
-    for (uint8_t i = 0; config[i].led_index != 255; i++) {
-        rgb_matrix_set_color(config[i].led_index, config[i].r, config[i].g, config[i].b);
+    switch(get_highest_layer(layer_state|default_layer_state)) {
+        case LAYER_BASE:
+            // Highlight home row (ASDF and JKL;)
+            rgb_matrix_set_color(4, RGB_PURPLE);  // A (index 13)
+            rgb_matrix_set_color(7, RGB_PURPLE);  // S (index 14)
+            rgb_matrix_set_color(10, RGB_PURPLE);  // D (index 15)
+            rgb_matrix_set_color(13, RGB_PURPLE);  // F (index 16)
+            rgb_matrix_set_color(22, RGB_PURPLE);  // J (index 19)
+            rgb_matrix_set_color(25, RGB_PURPLE);  // K (index 20)
+            rgb_matrix_set_color(28, RGB_PURPLE);  // L (index 21)
+            rgb_matrix_set_color(31, RGB_PURPLE);  // ; (index 22)
+            break;
+        case LAYER_RAISE:
+            break;
+        case LAYER_LOWER:
+            // Highlight numpad keys
+            rgb_matrix_set_color(27, RGB_TEAL);  // 6
+            rgb_matrix_set_color(28, RGB_TEAL);  // 6
+            rgb_matrix_set_color(29, RGB_TEAL);  // 6
+            rgb_matrix_set_color(30, RGB_TEAL);  // 6
+            rgb_matrix_set_color(31, RGB_TEAL);  // 6
+            rgb_matrix_set_color(32, RGB_TEAL);  // 6
+            rgb_matrix_set_color(33, RGB_TEAL);  // 6
+            rgb_matrix_set_color(34, RGB_TEAL);  // 6
+            rgb_matrix_set_color(35, RGB_TEAL);  // 6
+            rgb_matrix_set_color(38, RGB_TEAL);  // 6
+
+            rgb_matrix_set_color(38, RGB_RED);  // 6
+            rgb_matrix_set_color(25, RGB_RED);  // 6
+
+            break;
+        case LAYER_POINTER:
+            // Highlight pointer control keys
+            rgb_matrix_set_color(25, RGB_GREEN);   // DPI_MOD
+            rgb_matrix_set_color(28, RGB_GREEN);   // DPI_MOD
+            rgb_matrix_set_color(31, RGB_GREEN);   // DPI_MOD
+            rgb_matrix_set_color(34, RGB_GREEN);   // DPI_MOD
+            break;
+        case LAYER_FN:
+            break;
+        case LAYER_GAME:
+            rgb_matrix_set_color(4, RGB_RED);  // 6
+            rgb_matrix_set_color(6, RGB_RED);  // 6
+            rgb_matrix_set_color(7, RGB_RED);  // 6
+            rgb_matrix_set_color(10, RGB_RED);  // 6
+            break;
     }
-    
     return false;
 }
+
