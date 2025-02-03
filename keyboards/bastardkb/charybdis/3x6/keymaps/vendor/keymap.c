@@ -170,15 +170,18 @@ bool rgb_matrix_indicators_advanced_user(uint8_t led_min, uint8_t led_max) {
     
     switch(get_highest_layer(layer_state|default_layer_state)) {
         case LAYER_BASE:
+        if (is_keyboard_left()) {
             rgb_matrix_set_color(4, RGB_PURPLE);
             rgb_matrix_set_color(7, RGB_PURPLE);
             rgb_matrix_set_color(10, RGB_PURPLE);
             rgb_matrix_set_color(13, RGB_PURPLE);
+        }
             rgb_matrix_set_color(22, RGB_PURPLE);
             rgb_matrix_set_color(25, RGB_PURPLE);
             rgb_matrix_set_color(28, RGB_PURPLE);
             rgb_matrix_set_color(31, RGB_PURPLE);
             break;
+
         case LAYER_RAISE:
             break;
         case LAYER_LOWER:
@@ -203,6 +206,7 @@ bool rgb_matrix_indicators_advanced_user(uint8_t led_min, uint8_t led_max) {
             rgb_matrix_set_color(34, RGB_GREEN);
             break;
         case LAYER_FN:
+        if (is_keyboard_left()) {
             rgb_matrix_set_color(0, RGB_YELLOW);
             rgb_matrix_set_color(1, RGB_YELLOW);
             rgb_matrix_set_color(3, RGB_YELLOW);
@@ -219,16 +223,20 @@ bool rgb_matrix_indicators_advanced_user(uint8_t led_min, uint8_t led_max) {
             rgb_matrix_set_color(19, RGB_YELLOW);
 
             rgb_matrix_set_color(2, RGB_TEAL);
+        }
             break;
         case LAYER_GAME:
+        if (is_keyboard_left()) {
             rgb_matrix_set_color(4, RGB_RED);
             rgb_matrix_set_color(6, RGB_RED);
             rgb_matrix_set_color(7, RGB_RED);
             rgb_matrix_set_color(10, RGB_RED);
 
             rgb_matrix_set_color(2, RGB_TEAL);
+        }
             break;
     }
     return false;
 }
+
 
