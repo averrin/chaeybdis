@@ -15,7 +15,13 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 #include QMK_KEYBOARD_H
-#include "combos.h"
+
+const uint16_t PROGMEM open_paren_combo[] = {KC_J, KC_K, COMBO_END};
+const uint16_t PROGMEM close_paren_combo[] = {KC_K, KC_L, COMBO_END};
+combo_t key_combos[] = {
+    COMBO(open_paren_combo, KC_LPRN),  // Types '(' when pressing J+K together
+    COMBO(close_paren_combo, KC_RPRN), // Types ')' when pressing K+L together
+};
 
 enum charybdis_keymap_layers {
     LAYER_BASE = 0,
