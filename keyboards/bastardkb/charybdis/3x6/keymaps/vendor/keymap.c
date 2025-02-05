@@ -198,8 +198,12 @@ bool rgb_matrix_indicators_advanced_user(uint8_t led_min, uint8_t led_max) {
 
             rgb_matrix_set_color(37, RGB_RED);
             rgb_matrix_set_color(25, RGB_RED);
+            rgb_matrix_set_color(22, RGB_RED);
             break;
         case LAYER_POINTER:
+        if (is_keyboard_left()) {
+            rgb_matrix_set_color(0, RGB_TEAL);
+        }
             rgb_matrix_set_color(25, RGB_GREEN);
             rgb_matrix_set_color(28, RGB_GREEN);
             rgb_matrix_set_color(31, RGB_GREEN);
@@ -218,7 +222,7 @@ bool rgb_matrix_indicators_advanced_user(uint8_t led_min, uint8_t led_max) {
             rgb_matrix_set_color(12, RGB_YELLOW);
             rgb_matrix_set_color(13, RGB_YELLOW);
             rgb_matrix_set_color(16, RGB_YELLOW);
-            rgb_matrix_set_color(17, RGB_YELLOW);
+            rgb_matrix_set_color(15, RGB_YELLOW);
 
             rgb_matrix_set_color(2, RGB_TEAL);
         }
