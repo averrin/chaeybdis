@@ -1,0 +1,2 @@
+COMB_V2(jk_open_paren, KC_LPRN, KC_J, KC_K)
+COMB_V2(kl_close_paren, KC_RPRN, KC_K, KC_L) 

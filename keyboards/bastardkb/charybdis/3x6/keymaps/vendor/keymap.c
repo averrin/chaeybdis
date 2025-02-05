@@ -15,6 +15,7 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 #include QMK_KEYBOARD_H
+#include "combos.h"
 
 enum charybdis_keymap_layers {
     LAYER_BASE = 0,
@@ -246,5 +247,7 @@ bool rgb_matrix_indicators_advanced_user(uint8_t led_min, uint8_t led_max) {
     return false;
 
 }
+
+uint16_t COMBO_LEN = COMBO_COUNT;
 
 
